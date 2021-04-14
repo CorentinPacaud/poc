@@ -1,0 +1,33 @@
+
+#search{
+    width: 100%;
+}
+.p-menubar .p-menubar-custom, .p-menubar#search-bar .p-menubar-end {
+    margin-left: 0;
+}
+
+ul#search-items li{
+    display: inline;
+}
+.filter{
+    margin-right: 5px;
+}
+
+.startWithToto{
+    color: aliceblue;
+    background-color: red;
+}
+
+.startWithPipi{
+    color: aliceblue;
+    background-color: green;
+}
+
+.startWithCoco{
+    color: aliceblue;
+    background-color: blue;
+}
+
+.mini-chip{    
+    font-size: 0.8rem;
+}
