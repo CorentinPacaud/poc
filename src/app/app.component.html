@@ -2,11 +2,12 @@
   <div style="display: inline-flex;">
     <ul id="search-items">
       <li *ngFor="let val of values">
-        <p-chip class="filter" styleClass="{{getClass(val)}} p-mr-2 mini-chip" label="{{val}}" removable="true"></p-chip>
+        <p-chip class="filter" styleClass="{{getClass(val)}} p-mr-2 mini-chip" label="{{val}}" removable="true">
+        </p-chip>
       </li>
     </ul>
-    <p-autoComplete placeholder="Search" (keyup)="onKey($event)" [(ngModel)]="currentValue" [suggestions]="results"
-      (completeMethod)="search($event)"></p-autoComplete>
+    <p-autoComplete unique="true" placeholder="Search" (keyup)="onKey($event)"
+      [(ngModel)]="currentValue" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
 
     <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>
   </div>

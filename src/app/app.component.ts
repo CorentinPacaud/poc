@@ -38,18 +38,39 @@ export class AppComponent {
     }];
   }
 
+
+  countDown = -1;
+
   onKey(event: KeyboardEvent) {
-    console.log(event)
     if (event.key == "Enter") {
-      this.values.push(this.currentValue);
-      this.currentValue = "";
+      if (this.countDown == -1) {
+        this.values.push(this.currentValue);
+        this.currentValue = "";
+        this.countDown = -1;
+        return
+      }
+      else {
+        this.currentValue = this.results[this.countDown];
+        this.countDown = -1;
+        return
+      }
     }
+    if (event.key == "ArrowDown") this.countDown < this.results.length - 1 ? this.countDown++ : this.countDown = this.results.length - 1;
+    if (event.key == "ArrowUp") this.countDown > -1 ? this.countDown-- : this.countDown = -1;
+    console.log(this.countDown)
   }
 
+
   filters = ["toto:", "coco:", "tutu:", "pipi:"]
+  totos = ["toto:co", "toto:pi", "toto:tutu"]
+
   results: string[] = [];
   search(event) {
-    this.results = this.filters.filter(ele => ele.startsWith(event.query))
+    if (!event.query.startsWith("toto:"))
+      this.results = this.filters.filter(ele => ele.startsWith(event.query))
+    else {
+      this.results = this.totos.filter(ele => ele.startsWith(event.query))
+    }
   }
 
   getClass(text) {
@@ -61,5 +82,6 @@ export class AppComponent {
       return 'startWithToto'
     }
   }
+
 
 }
